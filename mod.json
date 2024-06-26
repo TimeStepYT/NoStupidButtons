@@ -10,7 +10,7 @@
 	"name": "NoStupidButtons",
 	"version": "v1.0.0",
 	"developer": "TimeStepYT",
-	"description": "This mod hides the Newgroudnds button and the More Games button",
+	"description": "This mod hides the Newgrounds button and the More Games button",
 
 	"settings": {
 		"hide-newgrounds-button": {
