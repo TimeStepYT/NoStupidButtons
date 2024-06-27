@@ -1,29 +1,41 @@
 {
-	"geode": "3.1.1",
-	"gd": {
-		"win": "2.206",
-		"android": "2.206",
-		"mac": "2.206",
-		"ios": "2.206"
-	},
-	"id": "timestepyt.nostupidbuttons",
-	"name": "NoStupidButtons",
-	"version": "v1.0.0",
-	"developer": "TimeStepYT",
-	"description": "This mod hides the Newgrounds button and the More Games button",
+  "geode": "3.1.1",
+  "gd": {
+    "win": "2.206",
+    "android": "2.206",
+    "mac": "2.206",
+    "ios": "2.206"
+  },
+  "id": "timestepyt.nostupidbuttons",
+  "name": "NoStupidButtons",
+  "version": "v1.1.0",
+  "developer": "TimeStepYT",
+  "description": "This mod hides the Newgrounds button and the More Games button",
 
-	"settings": {
-		"hide-newgrounds-button": {
-			"name": "Hide Newgrounds Button",
-			"description": "Toggles if the Newgrounds Button should be hidden in the Main Menu",
-			"type": "bool",
-			"default": true
-		},
-		"hide-more-games-button": {
-			"name": "Hide More Games Button",
-			"description": "Toggles if the More Games button should be hidden in the Main Menu. Will not work if DevTools is insalled on Android",
-			"type": "bool",
-			"default": true
-		}
-	}
+  "settings": {
+    "hide-newgrounds-button": {
+      "name": "Hide Newgrounds Button",
+      "description": "Toggles if the Newgrounds Button should be hidden in the Main Menu",
+      "type": "bool",
+      "default": true
+    },
+    "hide-more-games-button": {
+      "name": "Hide More Games Button",
+      "description": "Toggles if the More Games button should be hidden in the Main Menu. Will not work if DevTools is insalled on Android",
+      "type": "bool",
+      "default": true
+    },
+    "hide-social-media-buttons": {
+      "name": "Hide Social Media Buttons",
+      "description": "Toggles if the Social Media buttons should be hidden in the Main Menu",
+      "type": "bool",
+      "default": true
+    },
+    "hide-robtop-logo": {
+      "name": "Hide RobTop Logo",
+      "description": "Toggles if the RobTop logo should be hidden in the Main Menu. Default is off because it's kinda immoral to remove a watermark",
+      "type": "bool",
+      "default": false
+    }
+  }
 }
