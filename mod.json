@@ -6,11 +6,12 @@
     "mac": "2.206",
     "ios": "2.206"
   },
+  "repository": "https://github.com/Reinmmar/NoStupidButtons",
   "id": "timestepyt.nostupidbuttons",
   "name": "NoStupidButtons",
-  "version": "v1.1.0",
+  "version": "v1.1.1",
   "developer": "TimeStepYT",
-  "description": "This mod hides the Newgrounds button and the More Games button",
+  "description": "This mod hides the buttons nobody uses!",
 
   "settings": {
     "hide-newgrounds-button": {
@@ -33,7 +34,7 @@
     },
     "hide-robtop-logo": {
       "name": "Hide RobTop Logo",
-      "description": "Toggles if the RobTop logo should be hidden in the Main Menu. Default is off because it's kinda immoral to remove a watermark",
+      "description": "Toggles if the RobTop logo should be hidden in the Main Menu",
       "type": "bool",
       "default": false
     }
