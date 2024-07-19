@@ -10,9 +10,9 @@ bool isSettingEnabled(std::string setting) {
 
 class $modify(MyMenuLayer, MenuLayer) {
     struct Fields {
-        CCNode *bottomMenu;
-        CCNode *socialMediaMenu;
-        CCNode *moreGamesMenu;
+        CCNode* bottomMenu;
+        CCNode* socialMediaMenu;
+        CCNode* moreGamesMenu;
     };
 
     bool init() {
@@ -41,10 +41,11 @@ class $modify(MyMenuLayer, MenuLayer) {
         if (isSettingEnabled("hide-robtop-logo")) {
             m_fields->socialMediaMenu->removeChildByID("robtop-logo-button");
             m_fields->socialMediaMenu->updateLayout();
-        } else if (isSettingEnabled("hide-social-media-buttons")) {
-            CCNode *robtopButtonNode =
+        }
+        else if (isSettingEnabled("hide-social-media-buttons")) {
+            CCNode* robtopButtonNode =
                 m_fields->socialMediaMenu->getChildByID("robtop-logo-button");
-            CCNode *bottomMenuButton = m_fields->bottomMenu->getChildByID("settings-button");
+            CCNode* bottomMenuButton = m_fields->bottomMenu->getChildByID("settings-button");
             robtopButtonNode->setPositionY(bottomMenuButton->getPositionY());
             m_fields->socialMediaMenu->updateLayout();
         }
