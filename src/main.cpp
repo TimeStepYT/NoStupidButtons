@@ -9,45 +9,38 @@ bool isSettingEnabled(std::string setting) {
 }
 
 class $modify(MyMenuLayer, MenuLayer) {
-    struct Fields {
-        CCNode* bottomMenu;
-        CCNode* socialMediaMenu;
-        CCNode* moreGamesMenu;
-    };
-
-    bool init() {
+    bool init() override {
         if (!MenuLayer::init()) {
             return false;
         }
 
-        m_fields->bottomMenu = this->getChildByID("bottom-menu");
-        m_fields->socialMediaMenu = this->getChildByID("social-media-menu");
-        m_fields->moreGamesMenu = this->getChildByID("more-games-menu");
+        auto const bottomMenu = this->getChildByID("bottom-menu");
+        auto const socialMediaMenu = this->getChildByID("social-media-menu");
+        auto const moreGamesMenu = this->getChildByID("more-games-menu");
 
         if (isSettingEnabled("hide-newgrounds-button")) {
-            m_fields->bottomMenu->removeChildByID("newgrounds-button");
-            m_fields->bottomMenu->updateLayout();
+            bottomMenu->removeChildByID("newgrounds-button");
+            bottomMenu->updateLayout();
         }
 
         if (isSettingEnabled("hide-social-media-buttons")) {
-            m_fields->socialMediaMenu->removeChildByID("facebook-button");
-            m_fields->socialMediaMenu->removeChildByID("twitter-button");
-            m_fields->socialMediaMenu->removeChildByID("youtube-button");
-            m_fields->socialMediaMenu->removeChildByID("twitch-button");
-            m_fields->socialMediaMenu->removeChildByID("discord-button");
-            m_fields->socialMediaMenu->updateLayout();
+            socialMediaMenu->removeChildByID("facebook-button");
+            socialMediaMenu->removeChildByID("twitter-button");
+            socialMediaMenu->removeChildByID("youtube-button");
+            socialMediaMenu->removeChildByID("twitch-button");
+            socialMediaMenu->removeChildByID("discord-button");
+            socialMediaMenu->updateLayout();
         }
 
         if (isSettingEnabled("hide-robtop-logo")) {
-            m_fields->socialMediaMenu->removeChildByID("robtop-logo-button");
-            m_fields->socialMediaMenu->updateLayout();
+            socialMediaMenu->removeChildByID("robtop-logo-button");
+            socialMediaMenu->updateLayout();
         }
         else if (isSettingEnabled("hide-social-media-buttons")) {
-            CCNode* robtopButtonNode =
-                m_fields->socialMediaMenu->getChildByID("robtop-logo-button");
-            CCNode* bottomMenuButton = m_fields->bottomMenu->getChildByID("settings-button");
+            CCNode* const robtopButtonNode = socialMediaMenu->getChildByID("robtop-logo-button");
+            CCNode* const bottomMenuButton = bottomMenu->getChildByID("settings-button");
             robtopButtonNode->setPositionY(bottomMenuButton->getPositionY());
-            m_fields->socialMediaMenu->updateLayout();
+            socialMediaMenu->updateLayout();
         }
 
 #ifdef GEODE_IS_ANDROID
@@ -55,8 +48,8 @@ class $modify(MyMenuLayer, MenuLayer) {
             return true;
 #endif
         if (isSettingEnabled("hide-more-games-button")) {
-            m_fields->moreGamesMenu->removeChildByID("more-games-button");
-            m_fields->moreGamesMenu->updateLayout();
+            moreGamesMenu->removeChildByID("more-games-button");
+            moreGamesMenu->updateLayout();
         }
 
         return true;
