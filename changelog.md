@@ -1,5 +1,8 @@
 # Changelog for NoStupidButtons
 
+## v1.1.4
+- Updated to Geode 4.0.0-beta.1
+  
 ## v1.1.3
 - Ported to 2.207
 
