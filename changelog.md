@@ -1,5 +1,8 @@
 # Changelog for NoStupidButtons
 
+## v1.1.5
+- iOS support <3
+
 ## v1.1.4
 - Updated to Geode 4.0.0-beta.1
   
