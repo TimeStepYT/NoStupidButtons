@@ -3,6 +3,7 @@
 using namespace geode::prelude;
 
 #include <Geode/modify/MenuLayer.hpp>
+#include <Geode/modify/CreatorLayer.hpp>
 
 bool isSettingEnabled(std::string setting) {
     return Mod::get()->getSettingValue<bool>(setting);
@@ -52,6 +53,27 @@ class $modify(MyMenuLayer, MenuLayer) {
             moreGamesMenu->updateLayout();
         }
 
+        return true;
+    }
+};
+
+
+class $modify(MyCreatorLayer, CreatorLayer) {
+    bool init() {
+        if (!CreatorLayer::init()) return false;
+
+        auto creatorButtonsMenu = this->getChildByID("creator-buttons-menu");
+
+        if (!creatorButtonsMenu) return true;
+
+        auto versusButton = creatorButtonsMenu->getChildByID("versus-button");
+        auto mapButton = creatorButtonsMenu->getChildByID("map-button");
+
+        if (isSettingEnabled("hide-versus-button"))
+            versusButton->removeMeAndCleanup();
+        if (isSettingEnabled("hide-map-button"))
+            mapButton->removeMeAndCleanup();
+        creatorButtonsMenu->updateLayout();
         return true;
     }
 };

@@ -1,5 +1,5 @@
 {
-    "geode": "4.3.1",
+    "geode": "4.4.0",
     "gd": {
         "win": "2.2074",
         "android": "2.2074",
@@ -11,11 +11,16 @@
     },
     "id": "timestepyt.nostupidbuttons",
     "name": "NoStupidButtons",
-    "version": "v1.1.5",
+    "version": "v1.2.0",
     "developer": "TimeStepYT",
     "description": "This mod hides the buttons nobody uses!",
 
     "settings": {
+        "menulayer-title": {
+            "type": "title",
+            "name": "MenuLayer",
+            "description": "Everything that can be adjusted in MenuLayer"
+        },
         "hide-newgrounds-button": {
             "name": "Hide Newgrounds Button",
             "description": "Toggles if the Newgrounds Button should be hidden in the Main Menu",
@@ -39,6 +44,23 @@
             "description": "Toggles if the RobTop logo should be hidden in the Main Menu",
             "type": "bool",
             "default": false
-        }
+        },
+        "creatorlayer-title": {
+            "type": "title",
+            "name": "CreatorLayer",
+            "description": "Everything that can be adjusted in CreatorLayer"
+        },
+        "hide-map-button": {
+            "type": "bool",
+            "name": "Hide Map Button",
+            "description": "Toggles if the Map button should be removed from CreatorLayer",
+            "default": false
+        },
+        "hide-versus-button": {
+            "type": "bool",
+            "name": "Hide Versus Button",
+            "description": "Toggles if the Versus button should be removed from CreatorLayer",
+            "default": false
+        }        
     }
 }
