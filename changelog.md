@@ -1,5 +1,8 @@
 # Changelog for NoStupidButtons
 
+## v1.2.0
+- Grayed out buttons in CreatorLayer are now able to be hidden!
+
 ## v1.1.5
 - iOS support <3
 
