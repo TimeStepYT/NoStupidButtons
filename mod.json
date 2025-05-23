@@ -11,7 +11,7 @@
     },
     "id": "timestepyt.nostupidbuttons",
     "name": "NoStupidButtons",
-    "version": "v1.2.0",
+    "version": "v1.2.1",
     "developer": "TimeStepYT",
     "description": "This mod hides the buttons nobody uses!",
 
@@ -36,6 +36,12 @@
         "hide-social-media-buttons": {
             "name": "Hide Social Media Buttons",
             "description": "Toggles if the Social Media buttons should be hidden in the Main Menu",
+            "type": "bool",
+            "default": true
+        },
+        "reposition-robtop-logo": {
+            "name": "Reposition RobTop logo",
+            "description": "Repositions the RobTop logo in a way that I (the mod developer) find nicer to look at when hiding the social media buttons.",
             "type": "bool",
             "default": true
         },

@@ -9,47 +9,84 @@ bool isSettingEnabled(std::string setting) {
     return Mod::get()->getSettingValue<bool>(setting);
 }
 
+void kys(CCNode* victim) {
+    victim->setVisible(false);
+}
+
+void ignoreInvisible(CCNode* menu) {
+    if (!menu) return;
+    
+    auto layout = menu->getLayout();
+    if (!layout) return;
+
+    layout->ignoreInvisibleChildren(true);
+}
+
 class $modify(MyMenuLayer, MenuLayer) {
-    bool init() override {
+    bool init() {
         if (!MenuLayer::init()) {
             return false;
         }
 
-        auto const bottomMenu = this->getChildByID("bottom-menu");
-        auto const socialMediaMenu = this->getChildByID("social-media-menu");
-        auto const moreGamesMenu = this->getChildByID("more-games-menu");
+        auto bottomMenu = this->getChildByID("bottom-menu");
+        auto socialMediaMenu = this->getChildByID("social-media-menu");
+        auto moreGamesMenu = this->getChildByID("more-games-menu");
+
+        ignoreInvisible(bottomMenu);
 
         if (isSettingEnabled("hide-newgrounds-button")) {
-            bottomMenu->removeChildByID("newgrounds-button");
+            auto ngBtn = bottomMenu->getChildByID("newgrounds-button");
+
+            kys(ngBtn);
+
             bottomMenu->updateLayout();
         }
 
-        if (isSettingEnabled("hide-social-media-buttons")) {
-            socialMediaMenu->removeChildByID("facebook-button");
-            socialMediaMenu->removeChildByID("twitter-button");
-            socialMediaMenu->removeChildByID("youtube-button");
-            socialMediaMenu->removeChildByID("twitch-button");
-            socialMediaMenu->removeChildByID("discord-button");
-            socialMediaMenu->updateLayout();
-        }
+        if (isSettingEnabled("hide-social-media-buttons") && socialMediaMenu) {
+            auto fbBtn = socialMediaMenu->getChildByID("facebook-button");
+            auto twitterBtn = socialMediaMenu->getChildByID("twitter-button");
+            auto ytBtn = socialMediaMenu->getChildByID("youtube-button");
+            auto twitchBtn = socialMediaMenu->getChildByID("twitch-button");
+            auto discordBtn = socialMediaMenu->getChildByID("discord-button");
 
-        if (isSettingEnabled("hide-robtop-logo")) {
-            socialMediaMenu->removeChildByID("robtop-logo-button");
+            ignoreInvisible(socialMediaMenu);
+
+            kys(fbBtn);
+            kys(twitterBtn);
+            kys(ytBtn);
+            kys(twitchBtn);
+            kys(discordBtn);
+            
             socialMediaMenu->updateLayout();
         }
-        else if (isSettingEnabled("hide-social-media-buttons")) {
+        
+        if (isSettingEnabled("hide-robtop-logo")) {
+            auto robtopBtn = socialMediaMenu->getChildByID("robtop-logo-button");
+            
+            ignoreInvisible(socialMediaMenu);
+
+            kys(robtopBtn);
+            
+            socialMediaMenu->updateLayout();
+        }
+        else if (isSettingEnabled("hide-social-media-buttons") && isSettingEnabled("reposition-robtop-logo")) {
             CCNode* const robtopButtonNode = socialMediaMenu->getChildByID("robtop-logo-button");
             CCNode* const bottomMenuButton = bottomMenu->getChildByID("settings-button");
             robtopButtonNode->setPositionY(bottomMenuButton->getPositionY());
-            socialMediaMenu->updateLayout();
         }
 
-#ifdef GEODE_IS_ANDROID
+#ifdef GEODE_IS_MOBILE
         if (Loader::get()->isModLoaded("geode.devtools"))
             return true;
 #endif
+
         if (isSettingEnabled("hide-more-games-button")) {
-            moreGamesMenu->removeChildByID("more-games-button");
+            auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
+
+            ignoreInvisible(moreGamesMenu);
+            
+            kys(moreGamesButton);
+
             moreGamesMenu->updateLayout();
         }
 
@@ -66,13 +103,15 @@ class $modify(MyCreatorLayer, CreatorLayer) {
 
         if (!creatorButtonsMenu) return true;
 
+        ignoreInvisible(creatorButtonsMenu);
+
         auto versusButton = creatorButtonsMenu->getChildByID("versus-button");
         auto mapButton = creatorButtonsMenu->getChildByID("map-button");
 
         if (isSettingEnabled("hide-versus-button"))
-            versusButton->removeMeAndCleanup();
+            kys(versusButton);
         if (isSettingEnabled("hide-map-button"))
-            mapButton->removeMeAndCleanup();
+            kys(mapButton);
         creatorButtonsMenu->updateLayout();
         return true;
     }
