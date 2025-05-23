@@ -1,5 +1,9 @@
 # Changelog for NoStupidButtons
 
+## v1.2.1
+- Hiding now works by <cg>only setting the buttons invisible and telling the layout to ignore invisible children</c>, instead of <cr>brutally murdering them</c> (and possibly causing problems with other mods)!
+- iOS now doesn't remove the more games button if DevTools is enabled too!
+
 ## v1.2.0
 - Grayed out buttons in CreatorLayer are now able to be hidden!
 
