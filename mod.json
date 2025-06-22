@@ -1,5 +1,5 @@
 {
-    "geode": "4.4.0",
+    "geode": "4.5.0",
     "gd": {
         "win": "2.2074",
         "android": "2.2074",
@@ -11,7 +11,7 @@
     },
     "id": "timestepyt.nostupidbuttons",
     "name": "NoStupidButtons",
-    "version": "v1.2.1",
+    "version": "v1.2.2",
     "developer": "TimeStepYT",
     "description": "This mod hides the buttons nobody uses!",
 
@@ -40,8 +40,14 @@
             "default": true
         },
         "reposition-robtop-logo": {
-            "name": "Reposition RobTop logo",
+            "name": "Reposition RobTop Logo",
             "description": "Repositions the RobTop logo in a way that I (the mod developer) find nicer to look at when hiding the social media buttons.",
+            "type": "bool",
+            "default": true
+        },
+        "reposition-profile-btn": {
+            "name": "Reposition profile Button",
+            "description": "Repositions the profile button to be next to the bottom menu",
             "type": "bool",
             "default": true
         },

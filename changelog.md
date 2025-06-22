@@ -1,5 +1,8 @@
 # Changelog for NoStupidButtons
 
+## v1.2.2
+- Added option to reposition the profile button if the social media buttons and the robtop logo are hidden
+
 ## v1.2.1
 - Hiding now works by <cg>only setting the buttons invisible and telling the layout to ignore invisible children</c>, instead of <cr>brutally murdering them</c> (and possibly causing problems with other mods)!
 - iOS now doesn't remove the more games button if DevTools is enabled too!

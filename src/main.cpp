@@ -2,8 +2,8 @@
 
 using namespace geode::prelude;
 
-#include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/CreatorLayer.hpp>
+#include <Geode/modify/MenuLayer.hpp>
 
 bool isSettingEnabled(std::string setting) {
     return Mod::get()->getSettingValue<bool>(setting);
@@ -15,7 +15,7 @@ void kys(CCNode* victim) {
 
 void ignoreInvisible(CCNode* menu) {
     if (!menu) return;
-    
+
     auto layout = menu->getLayout();
     if (!layout) return;
 
@@ -56,23 +56,40 @@ class $modify(MyMenuLayer, MenuLayer) {
             kys(ytBtn);
             kys(twitchBtn);
             kys(discordBtn);
-            
+
             socialMediaMenu->updateLayout();
         }
-        
+
         if (isSettingEnabled("hide-robtop-logo")) {
             auto robtopBtn = socialMediaMenu->getChildByID("robtop-logo-button");
-            
+
             ignoreInvisible(socialMediaMenu);
 
             kys(robtopBtn);
-            
+
             socialMediaMenu->updateLayout();
         }
+
         else if (isSettingEnabled("hide-social-media-buttons") && isSettingEnabled("reposition-robtop-logo")) {
             CCNode* const robtopButtonNode = socialMediaMenu->getChildByID("robtop-logo-button");
             CCNode* const bottomMenuButton = bottomMenu->getChildByID("settings-button");
             robtopButtonNode->setPositionY(bottomMenuButton->getPositionY());
+        }
+
+        if (isSettingEnabled("hide-social-media-buttons") && isSettingEnabled("hide-robtop-logo")) {
+            socialMediaMenu->setVisible(false);
+
+            if (isSettingEnabled("reposition-profile-btn")) {
+                auto profileMenu = this->getChildByID("profile-menu");
+                auto usernameLabel = this->getChildByID("player-username");
+
+                float prevY = profileMenu->getPositionY();
+                float newY = bottomMenu->getPositionY();
+                float yOffset = newY - prevY;
+                
+                profileMenu->setPositionY(newY);
+                usernameLabel->setPositionY(usernameLabel->getPositionY() + yOffset);
+            }
         }
 
 #ifdef GEODE_IS_MOBILE
@@ -84,7 +101,7 @@ class $modify(MyMenuLayer, MenuLayer) {
             auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
 
             ignoreInvisible(moreGamesMenu);
-            
+
             kys(moreGamesButton);
 
             moreGamesMenu->updateLayout();
@@ -93,7 +110,6 @@ class $modify(MyMenuLayer, MenuLayer) {
         return true;
     }
 };
-
 
 class $modify(MyCreatorLayer, CreatorLayer) {
     bool init() {
