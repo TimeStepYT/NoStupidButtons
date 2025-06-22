@@ -1,5 +1,8 @@
 # Changelog for NoStupidButtons
 
+## v1.2.3
+- Updated the Geode version so iOS 26 can use the mod (right after i submitted v1.2.2, the update came out)
+
 ## v1.2.2
 - Added option to reposition the profile button if the social media buttons and the robtop logo are hidden
 
