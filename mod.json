@@ -1,9 +1,9 @@
 {
-    "geode": "4.6.0",
+    "geode": "5.0.0-alpha.1",
     "gd": {
-        "win": "2.2074",
+        "win": "2.2081",
         "android": "2.2074",
-        "mac": "2.2074",
+        "mac": "2.2081",
         "ios": "2.2074"
     },
     "links": {
@@ -11,7 +11,7 @@
     },
     "id": "timestepyt.nostupidbuttons",
     "name": "NoStupidButtons",
-    "version": "v1.2.3",
+    "version": "v1.2.3-alpha.1",
     "developer": "TimeStepYT",
     "description": "This mod hides the buttons nobody uses!",
 
