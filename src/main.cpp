@@ -13,15 +13,6 @@ void kys(CCNode* victim) {
     victim->setVisible(false);
 }
 
-void ignoreInvisible(CCNode* menu) {
-    if (!menu) return;
-
-    auto layout = menu->getLayout();
-    if (!layout) return;
-
-    layout->ignoreInvisibleChildren(true);
-}
-
 class $modify(MyMenuLayer, MenuLayer) {
     bool init() {
         if (!MenuLayer::init()) {
@@ -31,8 +22,6 @@ class $modify(MyMenuLayer, MenuLayer) {
         auto bottomMenu = this->getChildByID("bottom-menu");
         auto socialMediaMenu = this->getChildByID("social-media-menu");
         auto moreGamesMenu = this->getChildByID("more-games-menu");
-
-        ignoreInvisible(bottomMenu);
 
         if (isSettingEnabled("hide-newgrounds-button")) {
             auto ngBtn = bottomMenu->getChildByID("newgrounds-button");
@@ -49,8 +38,6 @@ class $modify(MyMenuLayer, MenuLayer) {
             auto twitchBtn = socialMediaMenu->getChildByID("twitch-button");
             auto discordBtn = socialMediaMenu->getChildByID("discord-button");
 
-            ignoreInvisible(socialMediaMenu);
-
             kys(fbBtn);
             kys(twitterBtn);
             kys(ytBtn);
@@ -62,8 +49,6 @@ class $modify(MyMenuLayer, MenuLayer) {
 
         if (isSettingEnabled("hide-robtop-logo")) {
             auto robtopBtn = socialMediaMenu->getChildByID("robtop-logo-button");
-
-            ignoreInvisible(socialMediaMenu);
 
             kys(robtopBtn);
 
@@ -100,8 +85,6 @@ class $modify(MyMenuLayer, MenuLayer) {
         if (isSettingEnabled("hide-more-games-button")) {
             auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
 
-            ignoreInvisible(moreGamesMenu);
-
             kys(moreGamesButton);
 
             moreGamesMenu->updateLayout();
@@ -118,8 +101,6 @@ class $modify(MyCreatorLayer, CreatorLayer) {
         auto creatorButtonsMenu = this->getChildByID("creator-buttons-menu");
 
         if (!creatorButtonsMenu) return true;
-
-        ignoreInvisible(creatorButtonsMenu);
 
         auto versusButton = creatorButtonsMenu->getChildByID("versus-button");
         auto mapButton = creatorButtonsMenu->getChildByID("map-button");
