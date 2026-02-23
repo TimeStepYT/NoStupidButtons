@@ -1,5 +1,9 @@
 # Changelog for NoStupidButtons
 
+## v1.2.4
+- Updated to Geode v5.0.0 and GD 2.2081
+- The More Games button gets hidden again on mobile even if you have DevTools installed. (DevTools doesn't use the More Games button anymore)
+
 ## v1.2.3
 - Updated the Geode version so iOS 26 can use the mod (right after i submitted v1.2.2, the update came out)
 
