@@ -77,11 +77,6 @@ class $modify(MyMenuLayer, MenuLayer) {
             }
         }
 
-#ifdef GEODE_IS_MOBILE
-        if (Loader::get()->isModLoaded("geode.devtools"))
-            return true;
-#endif
-
         if (isSettingEnabled("hide-more-games-button")) {
             auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
 
