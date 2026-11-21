@@ -1,17 +1,17 @@
 {
-    "geode": "5.9.0",
+    "geode": "6.0.0-beta.1",
     "gd": {
-        "win": "2.2081",
-        "android": "2.2081",
-        "mac": "2.2081",
-        "ios": "2.2081"
+        "win": "2.2091",
+        "android": "2.2091",
+        "mac": "2.2091",
+        "ios": "2.2091"
     },
     "links": {
         "source": "https://github.com/TimeStepYT/NoStupidButtons"
     },
     "id": "timestepyt.nostupidbuttons",
     "name": "NoStupidButtons",
-    "version": "v1.3.0",
+    "version": "v1.3.1",
     "developer": "TimeStepYT",
     "description": "This mod hides the buttons nobody uses!",
     "dependencies": {
@@ -33,11 +33,11 @@
             "type": "bool",
             "default": true
         },
-        "hide-more-games-button": {
-            "name": "Hide More Games Button",
-            "description": "Toggles if the More Games button should be hidden in the Main Menu. Will not work if DevTools is insalled on Android",
+        "hide-news-button": {
+            "name": "Hide News Button",
+            "description": "Toggles if the News button should be hidden in the Main Menu",
             "type": "bool",
-            "default": true
+            "default": false
         },
         "hide-social-media-buttons": {
             "name": "Hide Social Media Buttons",

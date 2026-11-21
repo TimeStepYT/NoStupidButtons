@@ -22,7 +22,7 @@ class $modify(MyMenuLayer, MenuLayer) {
 
         auto bottomMenu = this->getChildByID("bottom-menu");
         auto socialMediaMenu = this->getChildByID("social-media-menu");
-        auto moreGamesMenu = this->getChildByID("more-games-menu");
+        auto newsMenu = this->getChildByID("news-menu");
 
         if (isSettingEnabled("hide-newgrounds-button")) {
             auto ngBtn = bottomMenu->getChildByID("newgrounds-button");
@@ -78,12 +78,12 @@ class $modify(MyMenuLayer, MenuLayer) {
             }
         }
 
-        if (isSettingEnabled("hide-more-games-button")) {
-            auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
+        if (isSettingEnabled("hide-news-button") && newsMenu) {
+            auto newsButton = newsMenu->getChildByID("news-button");
 
-            kys(moreGamesButton);
+            kys(newsButton);
 
-            moreGamesMenu->updateLayout();
+            newsMenu->updateLayout();
         }
 
         return true;

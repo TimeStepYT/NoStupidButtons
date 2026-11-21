@@ -1,5 +1,9 @@
 # Changelog for NoStupidButtons
 
+## v1.3.1
+- Update to 2.2091
+- replaced setting for more games menu with an optional setting for the news button.
+
 ## v1.3.0
 - Added the editor help button and a setting to hide the exit without saving button
 - Added NodeIDs as a required dependency
